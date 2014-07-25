@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<configContents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="mainConfig.xsd">
+	<config>
+		<SQLServer>localhost\SQLEXPRESS</SQLServer>
+		<SQLUser></SQLUser>
+		<SQLPass></SQLPass>
+		<SQLCatalog>downloads</SQLCatalog>
+		<WatchPath>C:\Temp</WatchPath>
+		<OnChangedMode>True</OnChangedMode>
+		<OnRenamedMode>True</OnRenamedMode>
+		<OnCreatedMode>True</OnCreatedMode>
+		<OnDeletedMode>True</OnDeletedMode>
+	</config>
+</configContents>

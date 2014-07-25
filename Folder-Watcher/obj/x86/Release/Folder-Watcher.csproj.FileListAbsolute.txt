@@ -1,0 +1,9 @@
+C:\Users\Atle\Desktop\Creative_Creations\Prosjekter\Koding\Folder-Watcher\Folder-Watcher\bin\Release\Folder-Watcher.exe
+C:\Users\Atle\Desktop\Creative_Creations\Prosjekter\Koding\Folder-Watcher\Folder-Watcher\bin\Release\Folder-Watcher.pdb
+C:\Users\Atle\Desktop\Creative_Creations\Prosjekter\Koding\Folder-Watcher\Folder-Watcher\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Atle\Desktop\Creative_Creations\Prosjekter\Koding\Folder-Watcher\Folder-Watcher\obj\x86\Release\Folder_Watcher.Service.resources
+C:\Users\Atle\Desktop\Creative_Creations\Prosjekter\Koding\Folder-Watcher\Folder-Watcher\obj\x86\Release\Folder_Watcher.ProjectInstaller.resources
+C:\Users\Atle\Desktop\Creative_Creations\Prosjekter\Koding\Folder-Watcher\Folder-Watcher\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\Atle\Desktop\Creative_Creations\Prosjekter\Koding\Folder-Watcher\Folder-Watcher\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\Atle\Desktop\Creative_Creations\Prosjekter\Koding\Folder-Watcher\Folder-Watcher\obj\x86\Release\Folder-Watcher.exe
+C:\Users\Atle\Desktop\Creative_Creations\Prosjekter\Koding\Folder-Watcher\Folder-Watcher\obj\x86\Release\Folder-Watcher.pdb
