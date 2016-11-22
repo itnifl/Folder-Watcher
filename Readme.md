@@ -14,18 +14,17 @@ This document is in Norewgian. For English version, you could always try transla
 	3. Install the exe as a service this way(requires .Net 4):
 		C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\installutil.exe Folder-Watcher.exe
 	4. Make sure mainConfig.xml is correctly configured and table in database created as in createRegister.sql.
-Report bugs or wishes to [atle@team-holm.net](atle@team-holm.net)    
  
 --------
 #### Simple instructions for PowerShell FolderWatcher:
 	Service can be created by using for instance:
-	1. [NSSM](http://nssm.cc/): 
+	1. [NSSM] (http://nssm.cc/): 
 ``` powershell
 	Start-Process -FilePath .\nssm.exe -ArgumentList 'install Folder-Watcher "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" "-command "& { . C:\ServiceScripts\FolderWatcher.ps1; Start-Monitoring }"" ' -NoNewWindow -Wait
 ```
 	 
-	2. [Windows Service Wrapper](https://github.com/kohsuke/winsw)
-	3. [PowerGUI](https://powershell.org/tag/powergui/) and [Compile as a Service](https://alistairbmackay.wordpress.com/2015/11/24/run-powershell-code-as-a-windows-service/)
+	2. [Windows Service Wrapper] (https://github.com/kohsuke/winsw)
+	3. [PowerGUI] (https://powershell.org/tag/powergui/) and [Compile as a Service] (https://alistairbmackay.wordpress.com/2015/11/24/run-powershell-code-as-a-windows-service/)
 
 --------
   
@@ -63,4 +62,4 @@ Report bugs or wishes to [atle@team-holm.net](atle@team-holm.net)
 
 Meld gjerne bugs og ønsker til [atle@team-holm.net](atle@team-holm.net).
 	
-Atle Holm - 04.11.2012 0g 22.11.2016
+Atle Holm - 04.11.2012 og 22.11.2016
