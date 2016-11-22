@@ -2,31 +2,29 @@ FolderWatcher
 ============
 
 ### Note:
-This document is in Norewgian. For English version, you could always try translate.google.com. If the result is not understandable, try the simple instructions below. This readme fil will be updated with a full translation later.
+Some of this document is in Norewgian. For English version, you could always try translate.google.com. If the result is not understandable, try the simple instructions below. This readme file will be updated later.
 
 --------
 
 #### Simple instructions for C# FolderWatcher:
-	1. Copy files to %PROGRAMFILES%\Folder-Watcher or custom folder.
-	2. If you want a custom folder, it needs to be specified in 
+1. Copy files to %PROGRAMFILES%\Folder-Watcher or custom folder.
+2. If you want a custom folder, it needs to be specified in 
 		HKLM\SOFTWARE\Folder-Watcher with key configSource and with 
 	content the full absolute path to mainConfig.xml.
-	3. Install the exe as a service this way(requires .Net 4):
+3. Install the exe as a service this way(requires .Net 4):
 		C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\installutil.exe Folder-Watcher.exe
-	4. Make sure mainConfig.xml is correctly configured and table in database created as in createRegister.sql.
+4. Make sure mainConfig.xml is correctly configured and table in database created as in createRegister.sql.
  
 --------
 #### Simple instructions for PowerShell FolderWatcher:
-	Service can be created by using for instance:
-	1. [NSSM] (http://nssm.cc/): 
+Service can be created by using for instance:
+##### 1. [NSSM](http://nssm.cc/) in the following way:
 ``` powershell
 	Start-Process -FilePath .\nssm.exe -ArgumentList 'install Folder-Watcher "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" "-command "& { . C:\ServiceScripts\FolderWatcher.ps1; Start-Monitoring }"" ' -NoNewWindow -Wait
 ```
-	 
-	2. [Windows Service Wrapper](https://github.com/kohsuke/winsw)
-	3. [PowerGUI](https://powershell.org/tag/powergui) and [Compile as a Service](https://alistairbmackay.wordpress.com/2015/11/24/run-powershell-code-as-a-windows-service)
-	
-	Code for the correct execution has to be provided in powershell scripts located in the folder 'parts.'
+##### 2. [Windows Service Wrapper](https://github.com/kohsuke/winsw)
+##### 3. [PowerGUI](https://powershell.org/tag/powergui) and [Compile as a Service](https://alistairbmackay.wordpress.com/2015/11/24/run-powershell-code-as-a-windows-service)
+Code for the correct execution has to be provided in powershell scripts located in the folder 'parts.'
 
 --------
   
