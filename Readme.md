@@ -23,8 +23,10 @@ This document is in Norewgian. For English version, you could always try transla
 	Start-Process -FilePath .\nssm.exe -ArgumentList 'install Folder-Watcher "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" "-command "& { . C:\ServiceScripts\FolderWatcher.ps1; Start-Monitoring }"" ' -NoNewWindow -Wait
 ```
 	 
-	2. [Windows Service Wrapper] (https://github.com/kohsuke/winsw)
-	3. [PowerGUI] (https://powershell.org/tag/powergui/) and [Compile as a Service] (https://alistairbmackay.wordpress.com/2015/11/24/run-powershell-code-as-a-windows-service/)
+	2. [Windows Service Wrapper](https://github.com/kohsuke/winsw)
+	3. [PowerGUI](https://powershell.org/tag/powergui) and [Compile as a Service](https://alistairbmackay.wordpress.com/2015/11/24/run-powershell-code-as-a-windows-service)
+	
+	Code for the correct execution has to be provided in powershell scripts located in the folder 'parts.'
 
 --------
   

@@ -1,14 +1,19 @@
-﻿function Start-Monitoring {
+﻿function RunService {
+	<# This is a possible entry point, for instance when compiling to service with PowerGui #>
+	Start-Monitoring -Path "C:\Temp" -NameFilter "*.*" -IncludeSubdirectories $true
+}
+
+function Start-Monitoring {
 	Param(
 		[Parameter(Mandatory=$True,Position=1)]
 		[Alias("Path")]
-		$strWatchPath,
+		[string]$strWatchPath,
 		[Parameter(Mandatory=$False,Position=2)]
 		[Alias("NameFilter")]
-		$strNameFilter = "*.*",
+		[string]$strNameFilter = "*.*",
 		[Parameter(Mandatory=$False,Position=3)]
 		[Alias("IncludeSubdirectories")]
-		$boolIncludeSubdirectories = $false
+		[bool]$boolIncludeSubdirectories = $false
 	)
 	. ./Common-Functions.ps1
 	. ./parts/FileCreated.ps1 #Contains the FileCreatedEvent function
@@ -61,7 +66,8 @@
 		LogMessage -Message "Error: The watch path does not exist: $strWatchPath. Aborting script execution!" -Error $true
 	}		
 }
-function Start-Monitoring {
+#This function is not taken in use anywhere, but is supposed to serve as an example:
+function Stop-Monitoring {
 	Unregister-Event FileDeleted
 	Unregister-Event FileCreated
 	Unregister-Event FileChanged
