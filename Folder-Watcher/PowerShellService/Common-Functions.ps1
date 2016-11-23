@@ -325,7 +325,7 @@ function DoDBInsert() {
 		$cmd.connection = $conn
 		$cmd.commandtext = $nonQueryString
 		$cmd.executenonquery()
-	$conn.close()
+		$conn.close()
 	} catch {
 		#Do noting
 	}

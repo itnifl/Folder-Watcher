@@ -1,17 +1,14 @@
 ﻿function RunService {
 	<# This is a possible entry point, for instance when compiling to service with PowerGui #>
-	Start-Monitoring -Path "C:\tmp\infiles" -NameFilter "*.*" -IncludeSubdirectories $true
+	Start-Monitoring -NameFilter "*.*" -IncludeSubdirectories $true
 }
 
 function Start-Monitoring {
 	Param(
-		[Parameter(Mandatory=$True,Position=1)]
-		[Alias("Path")]
-		[string]$strWatchPath,
-		[Parameter(Mandatory=$False,Position=2)]
+		[Parameter(Mandatory=$False,Position=1)]
 		[Alias("NameFilter")]
 		[string]$strNameFilter = "*.*",
-		[Parameter(Mandatory=$False,Position=3)]
+		[Parameter(Mandatory=$False,Position=2)]
 		[Alias("IncludeSubdirectories")]
 		[bool]$boolIncludeSubdirectories = $false
 	)
@@ -30,6 +27,8 @@ function Start-Monitoring {
 		if($transferSettings."[Events]".OnRenamedEvent.ToLower() -eq "true") { $OnRenamedEvent = $true }
 		if($transferSettings."[Events]".OnCreatedEvent.ToLower() -eq "true") { $OnCreatedEvent = $true }
 		if($transferSettings."[Events]".OnDeletedEvent.ToLower() -eq "true") { $OnDeletedEvent = $true }
+		
+		$strWatchPath = $transferSettings."[Locations]".Sourcepath
 			
 		LogMessage -Message "Starting IO.FileSystemWatcher" -SetWhiteHighlighted $true
 		if(Test-Path $strWatchPath) {
