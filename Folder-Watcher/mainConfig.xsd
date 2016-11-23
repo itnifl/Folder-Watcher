@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- File Name: mainConfig.xsd -->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:annotation>
+	<xsd:documentation>Main configuration of Folder-Watcher</xsd:documentation>
+</xsd:annotation>
+
+<xsd:element name="configContents">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="config" type="configType" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+
+
+<xsd:complexType name="configType">
+	<xsd:sequence>
+		<xsd:element name="SQLServer" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		<xsd:element name="SQLUser" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		<xsd:element name="SQLPass" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		<xsd:element name="SQLCatalog" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		<xsd:element name="WatchPaTh" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		<xsd:element name="OnChangedMode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		<xsd:element name="OnRenamedMode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		<xsd:element name="OnCreatedMode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		<xsd:element name="OnDeletedMode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+</xsd:schema>

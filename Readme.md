@@ -20,11 +20,14 @@ Some of this document is in Norewgian. For English version, you could always try
 Service can be created by using for instance:
 ##### 1. [NSSM](http://nssm.cc/) in the following way:
 ``` powershell
-	Start-Process -FilePath .\nssm.exe -ArgumentList 'install Folder-Watcher "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" "-command "& { . C:\ServiceScripts\FolderWatcher.ps1; Start-Monitoring }"" ' -NoNewWindow -Wait
+	Start-Process -FilePath .\nssm.exe -ArgumentList 'install Folder-Watcher "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" "-command "& { . C:\ServiceScripts\FolderWatcher.ps1; RunService }"" ' -NoNewWindow -Wait
 ```
 ##### 2. [Windows Service Wrapper](https://github.com/kohsuke/winsw)
 ##### 3. [PowerGUI](https://powershell.org/tag/powergui) and [Compile as a Service](https://alistairbmackay.wordpress.com/2015/11/24/run-powershell-code-as-a-windows-service)
-Code for the correct execution has to be provided in powershell scripts located in the folder 'parts.'
+Code for execution on the correct events has to be provided in powershell scripts located in the folder 'parts.' As a demonstration there has been included code for writing log to SQL,
+and copying files to a destination after they have been created. Remember to alter the function RunService Folder-Watcher.ps1 with the correct parameters if you are going to use the RunService function.
+
+Remember that transferSettings.ini has to be set up correctly for the Powershell FolderWatcher to work.
 
 --------
   
