@@ -14,7 +14,7 @@ function FileCreatedEvent {
 	output to the console of this function is running inside an event. Therefore, test the function by itself or manuallu output
 	errors to console with Write-Host or LogMessage found in Commom-Functions.ps1 #>
 	
-	LogMessage -Message "Now performing actions designated for the FileCreatedEvent"
+	LogMessage -Message "Now performing actions designated for the FileCreatedEvent.."
 	do {
 		LogMessage -Message "Checking if $strFullPath is locked"
 		Start-Sleep -s 5
@@ -22,13 +22,13 @@ function FileCreatedEvent {
 	LogMessage -Message "Verifying that $strFullPath is not locked"
 	if((Test-IfFileLock -Path $strFullPath) -eq $false) {
 		$currentFileLocation = $strFullPath | Split-Path -Parent
-		$systemBase = $PSScriptRoot | Split-Path -Parent
-		#Get Credentials
+		$systemBase = $PSScriptRoot | Split-Path -Parent		
+		#Get Credentials		
 		LogMessage -Message "Going to read settings from $systemBase\transferSettings.ini"
 		$transferSettings = Get-Ini -ConfigFilePath "$systemBase\transferSettings.ini"
 		$username = $transferSettings."[Credentials]".Username
-		$destination = $transferSettings."[Locations]".Destination
-		#$sourcepath = $transferSettings.Get_Item("Sourcepath")
+		$destination = $transferSettings."[Locations]".Destination		
+		
 		LogMessage -Message "Received username: $username, source: $strFullPath and destination for file copy is: $destination"
 		if((Test-Path "$systemBase\securepassword.conf") -eq $false -and [Environment]::UserInteractive) {
 			LogMessage -Message "No secure password found, please enter a password and press enter:"
@@ -39,9 +39,9 @@ function FileCreatedEvent {
 		#Map location
 		LogMessage -Message "Mapping P to $destination"
 		New-PSDrive -Name P -PSProvider FileSystem -Root $destination -Credential $credentials
-		#Copy file to location
-		LogMessage -Message "Copying $strFullPath to p:\ ($destination)"
-		Copy-Item -Path $strFullPath -Destination P:\ -Confirm:$false
+		#Copy file to location		
+		LogMessage -Message "Copying $strFullPath to P:\ ($destination)"
+		Copy-Item -Path $strFullPath -Destination P:\ -Confirm:$false	
 		#Log success				
 		$transferSettings = Get-Ini -ConfigFilePath $GlobalTransferSettingsFile
 		if($transferSettings."[SQLSettings]".UseSQLLogging.ToLower() -eq "true") { $UseSQLLogging = $true }

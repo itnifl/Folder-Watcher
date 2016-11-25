@@ -5,7 +5,6 @@ FolderWatcher
 Some of this document is in Norewgian. For English version, you could always try translate.google.com. If the result is not understandable, try the simple instructions below. This readme file will be updated later.
 
 --------
-
 #### Simple instructions for C# FolderWatcher:
 1. Copy files to %PROGRAMFILES%\Folder-Watcher or custom folder.
 2. If you want a custom folder, it needs to be specified in 
@@ -17,14 +16,15 @@ Some of this document is in Norewgian. For English version, you could always try
  
 --------
 #### Simple instructions for PowerShell FolderWatcher:
-Service can be created by using for instance:
+Mote that the code provided is only a sekeleton. You have to write the rest yourself to get all the functionality you need. Service can be created by using for instance:
 ##### 1. [NSSM](http://nssm.cc/) in the following way:
 ``` powershell
 	Start-Process -FilePath .\nssm.exe -ArgumentList 'install Folder-Watcher "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" "-command "& { . C:\ServiceScripts\FolderWatcher.ps1; RunService }"" ' -NoNewWindow -Wait
 ```
-##### 2. [Windows Service Wrapper](https://github.com/kohsuke/winsw)
+##### 2. [Windows Service Wrapper](https://github.com/kohsuke/winsw) ()I have not gotten this to work.
 ##### 3. [PowerGUI](https://powershell.org/tag/powergui) and [Compile as a Service](https://alistairbmackay.wordpress.com/2015/11/24/run-powershell-code-as-a-windows-service)
-Code for execution on the correct events has to be provided in powershell scripts located in the folder 'parts.' As a demonstration there has been included code for writing log to SQL,
+##### 4. Or simply use the Windows Task Scheduler and trigger the task on startup and once every day (details for this is not provided here).
+Code for execution on the correct events has to be provided in Powershell scripts located in the folder 'parts.' As a demonstration there has been included code for writing log to SQL,
 and copying files to a destination after they have been created. Remember to alter the function RunService Folder-Watcher.ps1 with the correct parameters if you are going to use the RunService function.
 
 Remember that transferSettings.ini has to be set up correctly for the Powershell FolderWatcher to work.
