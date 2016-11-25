@@ -281,7 +281,7 @@ function GetConnectionString {
 	
 	$strConnectionstring = "";
 	if($strSQLMDFFile) {
-		$strConnectionstring =  "Driver={SQL Native Client};Server=.\SQLExpress;AttachDbFilename=" + $strSQLMDFFile + "; Database=dbname;Trusted_Connection=Yes;"
+		$strConnectionstring = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=$PSScriptRoot\$strSQLMDFFile;Integrated Security=True";
 	} elseif ([string]::IsNullOrEmpty($strSQLUser)) {
 		$strConnectionstring = "Integrated Security=SSPI; Data Source=" + $strSQLServer + "; Initial Catalog=" + $strSQLCatalog + ";";		
 	} else {
@@ -308,7 +308,7 @@ function GetConnectionString {
 .OUTPUTS
    Nothing
 #>
-function DoDBInsert() {
+function DoDBInsert {
 	param(
 		[Parameter(Mandatory = $True, Position = 0)]
 		[Alias("SQL")]
@@ -316,8 +316,8 @@ function DoDBInsert() {
 	)
 	try {
 		$strConnectionstring = GetConnectionString
-		LogMessage -Message "Attempting to use the following connection string: $strConnectionstring"
-		LogMessage -Message "Attempting to use the following SQL string: $nonQueryString"
+		#LogMessage -Message "Attempting to use the following connection string: $strConnectionstring"
+		#LogMessage -Message "Attempting to use the following SQL string: $nonQueryString"
 		$conn = New-Object System.Data.SqlClient.SqlConnection
 		$conn.ConnectionString = $strConnectionstring
 		$conn.open()
@@ -327,6 +327,6 @@ function DoDBInsert() {
 		$cmd.executenonquery()
 		$conn.close()
 	} catch {
-		#Do noting
+		LogMessage -Message "Error at DoDBInsert: $($_.Exception.ItemName), Message: $($_.Exception.Message)" -Error $true	
 	}
 }
